@@ -1,0 +1,40 @@
+.wrapper {}
+
+.MuiTimelineOppositeContent-root {
+    padding: 0px !important;
+}
+
+.darkBG {
+    background-color: var(--background);
+}
+
+.elipseBox {
+    background-color: var(--background);
+    color: var(--mid);
+    display: block;
+    height: 5em;
+    padding-left: 16px;
+    font-size: var(--fz-sm)
+}
+
+.elipseBox div {
+    box-shadow: unset !important;
+}
+
+.elipse {
+    width: 1000px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    float: left;
+}
+
+.more {
+    float: right;
+    padding: 0px 16px;
+}
+
+.summaryBar {
+    padding: 0 !important;
+    ;
+}

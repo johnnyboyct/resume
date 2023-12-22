@@ -1,0 +1,42 @@
+.wrapperIntro {
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+}
+
+.i1 {
+    margin: 0px;
+    font-size: clamp(40px, 8vw, 80px);
+    font-weight: 600;
+    color: var(--lightest-slate);
+    line-height: 1.1;
+    text-shadow: 2px 2px var(--dark);
+}
+
+.i2 {
+    margin: 0px;
+        font-size: clamp(11px, 4vw, 42px);
+    margin-top: 5px;
+    color: var(--slate);
+    line-height: 0.9;
+    text-shadow: 2px 2px var(--dark-slate);
+}
+.i3{
+    /* color: var(--lightest-slate); */
+}
+
+.introText {
+    display: block;
+    text-align: left;
+    width: 65%;
+}
+
+.sectionIntro {
+    margin: 0px auto;
+    padding: 100px 0px;
+    max-width: 1000px;
+}

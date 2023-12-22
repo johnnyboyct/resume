@@ -1,0 +1,95 @@
+/* CSS HEX */
+:root {
+    --dark: #222526;
+    --background: #181a1b;
+    --light: #8892b0;
+    --mid: #808080;
+    /* --green: #0DF205; */
+    --blue: #4214A6;
+    --font-mono: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
+    --fz-sm: .75rem;
+    --fz-md: 1.25em;
+    --dark-navy: #020c1b;
+    --navy: #0a192f;
+    --light-navy: #112240;
+    --lightest-navy: #233554;
+    --navy-shadow: rgba(2, 12, 27, 0.7);
+    --dark-slate: #414d67;
+    --slate: #848ca4;
+    --light-slate: #acb8de;
+    --lightest-slate: #c8d2f0;
+    --white: #e6f1ff;
+    --green: #64ffc6;
+    --green-tint: rgba(100, 255, 218, 0.1);
+    --pink: #f57dff;
+    --blue: #57cbff;
+    --font-sans: 'Calibre', 'Inter', 'San Francisco', 'SF Pro Text', -apple-system, system-ui, sans-serif;
+    --font-mono: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
+    --fz-xxs: 12px;
+    --fz-xs: 13px;
+    --fz-sm: 14px;
+    --fz-md: 16px;
+    --fz-lg: 18px;
+    --fz-xl: 20px;
+    --fz-xxl: 22px;
+    --fz-heading: 32px;
+    --border-radius: 4px;
+    --nav-height: 100px;
+    --nav-scroll-height: 70px;
+    --tab-height: 42px;
+    --tab-width: 120px;
+    --easing: cubic-bezier(0.645, 0.045, 0.355, 1);
+    --transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+    --hamburger-width: 30px;
+    --ham-before: top 0.1s ease-in 0.25s, opacity 0.1s ease-in;
+    --ham-before-active: top 0.1s ease-out, opacity 0.1s ease-out 0.12s;
+    --ham-after: bottom 0.1s ease-in 0.25s, transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    --ham-after-active: bottom 0.1s ease-out, transform 0.22s cubic-bezier(0.215, 0.61, 0.355, 1) 0.12s;
+    /* --green: #00fe01ff;
+    --eerie-black: #181a1bff;
+    --mauveine: #ae019fff;
+    --moonstone: #03a6b5ff;
+    --eerie-black-2: #181a1bff; */
+
+    /* CSS HSL */
+    /* --green: hsla(120, 100%, 50%, 1);
+    --eerie-black: hsla(200, 6%, 10%, 1);
+    --mauveine: hsla(305, 99%, 34%, 1);
+    --moonstone: hsla(185, 97%, 36%, 1);
+    --eerie-black-2: hsla(200, 6%, 10%, 1); */
+}
+
+.App {
+    text-align: center;
+    background-color: var(--dark);
+    margin-top: 4em;
+}
+
+
+.introBright {
+    margin: 0px 0px 0px 0px;
+    color: var(--green);
+    font-family: var(--font-mono);
+    font-size: clamp(var(--fz-sm), 5vw, var(--fz-md));
+    font-weight: 400;
+    text-shadow: 0px 0px 2px var(--lightest-slate);
+}
+
+
+
+
+/* .outer {
+    margin-bottom: 15px;
+    width: 100%;
+    height: 15px;
+}
+
+.plain.outer {
+    border: 1px solid limegreen;
+}
+
+.plain .inner {
+    width: 90%;
+    background-color: limegreen;
+    height: 15px;
+} */

@@ -1,0 +1,16 @@
+.wrapper {
+        /* padding: 2%;
+            background: #000;
+            background: url(https://www.dropbox.com/s/qkasvy18s0m4497/testpaper.png?dl=1), #fafaff;
+            border-radius: 1px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+            margin-bottom: 2rem; */
+}
+.border{
+    position: relative;
+        padding: 1.5rem 0.5rem;
+        font-size: 1.3rem;
+        text-align: center;
+        border-radius: 0.1rem;
+        border: 0.44rem double rgba(255, 255, 255, 0.2);
+}
