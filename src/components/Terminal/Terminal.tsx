@@ -5,12 +5,16 @@ import React, { useEffect } from 'react';
 import { TypedTerminal } from 'react-component-typed-terminal';
 import { useCookies } from 'react-cookie';
 
+import ArrowDropDownCircleOutlinedIcon
+  from '@mui/icons-material/ArrowDropDownCircleOutlined';
 import CheckCircleRoundedIcon from '@mui/icons-material/CheckCircleRounded';
-import CloseIcon from '@mui/icons-material/Close';
+import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
+import HighlightOffOutlinedIcon from '@mui/icons-material/HighlightOffOutlined';
 import {
   Button,
   DialogActions,
   Slide,
+  Typography,
 } from '@mui/material';
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
@@ -98,23 +102,34 @@ export default function Terminal({ theme, basics, terminalOpts }: ITerminalProps
 			open={open}
 			onClose={handleClose}
 			TransitionComponent={Transition}
+			sx={{ backgroundColor: 'unset'}}
 		>
-			<DialogTitle sx={{ m: 0, p: 2 }} id="customized-dialog-title">
-				John Marczak, Full Stack Software Developer
+
+
+
+			<DialogTitle sx={{ m: 0, p: '3px', backgroundColor: theme.palette.primary.linuxBG, color: theme.palette.primary.paperBG, }} id="customized-dialog-title">
+				<HelpOutlineOutlinedIcon sx={{ color: theme.palette.primary.paperBG, float: 'left', display: 'inline', fontSize: '1.5em', margin: '0, 10px' }} />
+				<Typography sx={{ color: theme.palette.primary.paperBG, display: 'block', textAlign: 'center', fontSize: '1em' }}>John Marczak, Full Stack Software Developer</Typography>
 			</DialogTitle>
+
 			<IconButton
+				size="large"
 				aria-label="close"
 				onClick={handleClose}
 				sx={{
 					position: 'absolute',
 					right: 8,
-					top: 8,
-					color: (theme) => theme.palette.grey[500],
+					top: 4,
+					padding: 0,
+					color: (theme) => theme.palette.primary.paperBG,
 				}}
 			>
-				<CloseIcon />
+				<ArrowDropDownCircleOutlinedIcon sx={{ color: theme.palette.primary.paperBG, fontSize: '1em', margin: '0, 10px'}} />
+				<HighlightOffOutlinedIcon sx={{ color: theme.palette.primary.paperBG, fontSize: '1em', margin: '0, 10px' }}  />
+
 			</IconButton>
-			<DialogContent dividers style={{ padding: 0 }} className=''>
+
+			<DialogContent dividers style={{ padding: 0 }} className='' sx={{ backgroundColor: theme.palette.primary.linuxTermBG, color: theme.palette.primary.paperBG, opacity: '85%' }}>
 				{/* <div className="plain outer">
 					<div className="inner"></div>
 				</div> */}

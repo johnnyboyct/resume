@@ -1,15 +1,6 @@
 import * as React from 'react';
 
-import ExpandCircleDownTwoToneIcon
-  from '@mui/icons-material/ExpandCircleDownTwoTone';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import RestoreIcon from '@mui/icons-material/Restore';
-import {
-  Paper,
-  Typography,
-} from '@mui/material';
-import BottomNavigation from '@mui/material/BottomNavigation';
-import BottomNavigationAction from '@mui/material/BottomNavigationAction';
+import { Typography } from '@mui/material';
 
 export interface IFooterProps {}
 
@@ -28,7 +19,7 @@ export default function Footer({ }: IFooterProps) {
       {new Date().getFullYear()}
       {"."}
     </Typography>
-    <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} elevation={3}>
+    {/* <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} elevation={3}>
       <BottomNavigation
         showLabels
         value={value}
@@ -40,6 +31,6 @@ export default function Footer({ }: IFooterProps) {
         <BottomNavigationAction label="Favorites" icon={<FavoriteIcon />} />
         <BottomNavigationAction label="Archive" icon={<ExpandCircleDownTwoToneIcon />} />
       </BottomNavigation>
-    </Paper>
+    </Paper> */}
   </div>;
 }

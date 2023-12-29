@@ -3,6 +3,7 @@ import './Intro.css';
 import {
   Grid,
   Typography,
+  useTheme,
 } from '@mui/material';
 
 export interface IIntroProps {
@@ -10,6 +11,8 @@ export interface IIntroProps {
 }
 
 export default function Intro({ profileData }: IIntroProps) {
+  const theme = useTheme()
+
   console.log(profileData);
 
   return (
@@ -26,7 +29,7 @@ export default function Intro({ profileData }: IIntroProps) {
           <Grid item xs={12} sm container>
             <section >
               <div className='introText'>
-                <h6 className='introBright'>Hi, my name is</h6>
+                <h6 className='introBright' style={{ color: theme.palette.success.light}}>Hi, my name is</h6>
                 <h1 className='i1'>{profileData.name}</h1>
                 <h2 className='i2'>{profileData.label}</h2>
                 <Typography variant="caption" className='i3'>{profileData.summary}</Typography>

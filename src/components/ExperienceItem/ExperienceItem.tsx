@@ -1,6 +1,11 @@
 import './ExperienceItem.css';
 
-import { SyntheticEvent } from 'react';
+import {
+  MutableRefObject,
+  SyntheticEvent,
+  useRef,
+  useState,
+} from 'react';
 
 import Moment from 'react-moment';
 
@@ -22,22 +27,24 @@ import {
   Divider,
   Link,
   Typography,
+  useTheme,
 } from '@mui/material';
 
 export interface IExperienceItemProps {
 	workItemData: any
+	showDateStats: boolean
 }
 
-export default function ExperienceItem({ workItemData }: IExperienceItemProps) {
-	console.log(workItemData)
+export default function ExperienceItem({ workItemData, showDateStats = true }: IExperienceItemProps) {
+	const elipseContent = useRef(null)
+	const [showElipse, setShowElipse] = useState(true)
+	const theme = useTheme()
+
 	const getWorkDates = () => {
 		const startdate = new Date(workItemData.startDate)
 		let enddate = null
 		let ds = null
-		if (
-			typeof workItemData.endDate !== 'undefined' &&
-			workItemData.endDate !== ''
-		) {
+		if (typeof workItemData.endDate !== 'undefined' && workItemData.endDate !== '') {
 			enddate = new Date(workItemData.endDate)
 			enddate = enddate.toLocaleDateString()
 		} else {
@@ -46,19 +53,21 @@ export default function ExperienceItem({ workItemData }: IExperienceItemProps) {
 
 		if (enddate === 'Present') {
 			ds = (
-				<TimelineContent sx={{ m: 'auto 0' }}
-					align="right"
-					variant="body2"
-					color="text.secondary">
+				<TimelineContent
+					sx={{ m: 'auto 0' }}
+					align='right'
+					variant='body2'
+					color='primary.contrastText'
+				>
 					<Typography>
 						<Moment format='MMM YYYY' className='s'>
 							{startdate}
 						</Moment>{' '}
 						- Present
 					</Typography>
-					<Typography display='inline' variant="caption">
+					<Typography display='inline' variant='caption'>
 						<Moment
-							format='M [months] d [days]'
+							format='Y [years] M [months]'
 							date={startdate}
 							durationFromNow
 						/>
@@ -67,75 +76,85 @@ export default function ExperienceItem({ workItemData }: IExperienceItemProps) {
 			)
 		} else {
 			ds = (
-				<TimelineContent sx={{ m: 'auto 0' }}
-					align="right"
-					variant="body2"
-					color="text.secondary">
+				<TimelineContent
+					sx={{ m: 'auto 0' }}
+					align='right'
+					variant='body2'
+					color='primary.contrastText'
+				>
 					<Typography>
-						<Moment format='MMM YYYY'>{startdate}</Moment> -
-						<Moment format='MMM YYYY'>{enddate}</Moment>
+						<Moment format='MMM YYYY'>{startdate}</Moment> - <Moment format='MMM YYYY'>{enddate}</Moment>
 					</Typography>
-					<Typography display='inline' variant="caption">
+					{showDateStats ? <Typography display='inline' variant='caption'>
 						(Total:{' '}
 						<Moment from={enddate} ago>
 							{startdate}
 						</Moment>
 						, Left: <Moment fromNow>{enddate}</Moment>)
-					</Typography>
+					</Typography> : null}
+
 				</TimelineContent>
 			)
 		}
 
-		return <span className='startdate'>{ds}</span>
+		return <div className='startdate'>{ds}</div>
 	}
-	const handleChange = (e: SyntheticEvent<Element, Event>, expanded: boolean) =>{
-		console.log(e, expanded);
+	const handleChange = (
+		e: SyntheticEvent<Element, Event>,
+		expanded: boolean,
+		elipseContent: MutableRefObject<null>
+	) => {
+		setShowElipse(!showElipse)
+		return true
 	}
 	return (
 		<div className='wrapper'>
-			<TimelineItem>
-				<TimelineOppositeContent>{getWorkDates()}</TimelineOppositeContent>
-				<TimelineSeparator>
-					<TimelineConnector />
-					<TimelineDot color="grey" variant="filled">
+			<TimelineItem >
+				<TimelineOppositeContent>
+					{getWorkDates()}
+				</TimelineOppositeContent>
+				<TimelineSeparator >
+					<TimelineConnector sx={{ bgcolor: 'secondary.main' }} />
+					<TimelineDot color='secondary' variant='filled' sx={{ margin: 0, backgroundColor: theme.palette.secondary.main }}>
 						<MapsHomeWorkTwoToneIcon />
 					</TimelineDot>
-					<TimelineConnector />
+					<TimelineConnector sx={{ bgcolor: 'secondary.main' }} />
 				</TimelineSeparator>
-				<TimelineContent sx={{ py: '12px', px: 2 }} className="darkBG">
-					<div className="elipseBox">
-						<Accordion square onChange={(e, expanded) => {
-							if (expanded) {
-								handleChange(e, expanded);
-							}
-						}}>
+				<TimelineContent sx={{ py: '0px', px: 2, width: '33%', backgroundColor: theme.palette.primary.paperBG, color: theme.palette.primary.contrastText }}  >
+						<Accordion
+							disableGutters
+							elevation={0}
+							square
+							sx={{ backgroundColor: theme.palette.primary.paperBG, color: theme.palette.primary.contrastText }}
+							onChange={(e, expanded) => {
+								handleChange(e, expanded, elipseContent)
+							}}
+						>
 							<AccordionSummary
-								expandIcon={<ExpandCircleDownTwoToneIcon color='primary' />}
+								expandIcon={<ExpandCircleDownTwoToneIcon color='primary' fontSize="large" />}
 								aria-controls='panel1a-content'
 								id='panel1a-header'
 								className='summaryBar'
+								sx={{ backgroundColor: theme.palette.primary.paperBG, color: theme.palette.primary.contrastText }}
 							>
-								<Typography sx={{ width: '33%', flexShrink: 0 }}>
-									<Link href={workItemData.url}>{workItemData.name}</Link>
+								<Typography sx={{ width: '28%', flexShrink: 0 }}>
+									<Link href={workItemData.url} target='_blank'>{workItemData.name}</Link>
 								</Typography>
 								<Divider orientation='vertical' variant='inset' />
-								<Typography sx={{ color: 'text.secondary' }}>
+								<Typography >
 									{workItemData.position}
 								</Typography>
 							</AccordionSummary>
 
 							<AccordionDetails>
-								<Typography>{workItemData.position}</Typography>
 								<Typography className='summary'>
 									{workItemData.summary}
 								</Typography>
 							</AccordionDetails>
 						</Accordion>
-						<div className="elipse">
+						<div className='elipse' ref={elipseContent} hidden={!showElipse} style={{ backgroundColor: theme.palette.primary.paperBG, color: theme.palette.primary.contrastText }}>
 							{workItemData.summary}
 						</div>
-						<span className='more'>More...</span>
-					</div>
 				</TimelineContent>
 			</TimelineItem>
 		</div>

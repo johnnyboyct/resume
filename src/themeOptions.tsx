@@ -1,5 +1,20 @@
 import { ThemeOptions } from '@mui/material/styles';
 
+declare module '@mui/material/styles' {
+    interface PaletteColor {
+        paperBG?: string;
+        linuxBG?: string
+        linuxBGLight?: string
+        linuxTermBG?: string
+    }
+
+    interface SimplePaletteColorOptions {
+        paperBG?: string;
+        linuxBG?: string
+        linuxBGLight?: string
+        linuxTermBG?: string
+    }
+}
 const typeographyOptions = {
     typography: {
         fontFamily: 'Roboto,Droid Sans',
@@ -9,6 +24,7 @@ const typeographyOptions = {
         fontWeightBold: 700,
         fontSize: 14,
         htmlFontSize: 16,
+
     },
 };
 
@@ -29,29 +45,92 @@ const buttonOptions = {
         // },
     },
 }
+const propsOptions = {
+    props: {
+        MuiAppBar: {
+            color: 'inherit',
+        },
+        MuiTooltip: {
+            arrow: true,
+        },
+        MuiButton: {
+            size: 'small',
+        },
+        MuiButtonGroup: {
+            size: 'small',
+        },
+        MuiCheckbox: {
+            size: 'small',
+        },
+        MuiFab: {
+            size: 'small',
+        },
+        MuiFormControl: {
+            margin: 'dense',
+            size: 'small',
+        },
+        MuiFormHelperText: {
+            margin: 'dense',
+        },
+        MuiIconButton: {
+            size: 'small',
+        },
+        MuiInputBase: {
+            margin: 'dense',
+        },
+        MuiInputLabel: {
+            margin: 'dense',
+        },
+        MuiRadio: {
+            size: 'small',
+        },
+        MuiSwitch: {
+            size: 'small',
+        },
+        MuiTextField: {
+            margin: 'dense',
+            size: 'small',
+        },
+        MuiList: {
+            dense: true,
+        },
+        MuiMenuItem: {
+            dense: true,
+        },
+        MuiTable: {
+            size: 'small',
+        },
+    },
+}
+const miscOptions = {
+    spacing: 4,
+    shape: {
+        borderRadius: 4,
+    },
+}
 
 export const themeOptions: ThemeOptions = {
     palette: {
         mode: 'light',
         primary: {
-            main: '#359a3a',
-            light: '#57c75d',
-            dark: '#27642a',
-            contrastText: '#ffffff',
+            main: '#0288d1',
+            light: '#29b6f6',
+            dark: '#0d47a1',
+            contrastText: '#000',
+            paperBG: '#f5f5f5',
+            linuxBG: '#222222',
+            linuxBGLight: '#393939',
+            linuxTermBG: '#2f0923'
 
         },
         secondary: {
-            main: '#ff005b',
-            light: '#ea3472',
-            dark: '#9e003a',
-            contrastText: '#eeeeee',
+            main: '#9c27b0',
         },
-        divider: 'rgba(236,223,223,0.12)',
         success: {
-            main: '#374dc9',
-            light: '#5d6cc7',
-            dark: '#1d296d',
-            contrastText: '#e0e0e0',
+            main: '#1de9b6',
+            light: '#64ffc6',
+            dark: '#00c853',
+            contrastText: '#ffffff',
         },
         info: {
             main: '#05a7f1',
@@ -60,28 +139,29 @@ export const themeOptions: ThemeOptions = {
             contrastText: 'rgba(0,0,0,0.87)',
         },
         warning: {
-            main: '#f99e1a',
-            light: '#ffb64f',
-            dark: '#bd740c',
-            contrastText: 'rgba(0,0,0,0.88)',
+            main: '#fdd835',
+            light: '#ffff8d',
+            dark: '#ffd600',
+            contrastText: '#757575',
         },
         error: {
-            main: '#f73325',
-            light: '#e0584c',
-            dark: '#a01a11',
+            main: '#ad1457',
+            light: '#ff80ab',
+            dark: '#c51162',
             contrastText: '#ececec',
         },
-        text: {
-            // hint: '#1d1643',
-            primary: '#fefefe',
-            secondary: '#fefefe',
-            disabled: '#fefefe',
-        },
         background: {
-            default: '#000000',
-            paper: '#181a1b',
+            paper: '#f5f5f5',
+            default: '#fafafa',
+        },
+        text: {
+            primary: '#263238',
+            secondary: '#78909c',
+            disabled: '#455a64',
         },
     },
+    ...miscOptions,
+    ...propsOptions,
     ...typeographyOptions,
     ...buttonOptions
 };
@@ -91,10 +171,11 @@ export const themeOptionsDark: ThemeOptions = {
     palette: {
         mode: 'dark',
         primary: {
-            main: '#374dc9',
-            light: '#5d6cc7',
+            main: '#29b6f6',
+            light: '#0288d1',
             dark: '#1d296d',
-            contrastText: '#e0e0e0',
+            contrastText: '#181a1b',
+            paperBG: '#f5f5f5'
         },
         secondary: {
             main: '#ff005b',
@@ -105,7 +186,7 @@ export const themeOptionsDark: ThemeOptions = {
         divider: 'rgba(236,223,223,0.12)',
         success: {
             main: '#359a3a',
-            light: '#57c75d',
+            light: '#64ffc6',
             dark: '#27642a',
             contrastText: '#ffffff',
         },

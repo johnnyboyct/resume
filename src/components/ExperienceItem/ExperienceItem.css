@@ -2,6 +2,7 @@
 
 .MuiTimelineOppositeContent-root {
     padding: 0px !important;
+    width: 33%;
 }
 
 .darkBG {
@@ -22,11 +23,12 @@
 }
 
 .elipse {
-    width: 1000px;
-    white-space: nowrap;
+    width: 100%;
+        white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     float: left;
+    font-size: var(--fz-sm)
 }
 
 .more {
@@ -38,3 +40,4 @@
     padding: 0 !important;
     ;
 }
+

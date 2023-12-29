@@ -19,13 +19,14 @@
 
 .i2 {
     margin: 0px;
-        font-size: clamp(11px, 4vw, 42px);
+    font-size: clamp(11px, 4vw, 42px);
     margin-top: 5px;
     color: var(--slate);
     line-height: 0.9;
     text-shadow: 2px 2px var(--dark-slate);
 }
-.i3{
+
+.i3 {
     /* color: var(--lightest-slate); */
 }
 

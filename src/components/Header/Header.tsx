@@ -1,7 +1,11 @@
 import './Header.css';
 
 import * as React from 'react';
+import { useState } from 'react';
 
+import { NavLink } from 'react-router-dom';
+
+import { extendTheme as chakraExtendTheme } from '@chakra-ui/react';
 import MenuIcon from '@mui/icons-material/Menu';
 import {
   Slide,
@@ -12,15 +16,28 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import IconButton from '@mui/material/IconButton';
+import { createTheme as muiCreateTheme } from '@mui/material/styles';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 
+import {
+  themeDark,
+  themeLight,
+} from '../../theme';
+
+const chakraTheme = chakraExtendTheme();
+const materialTheme = muiCreateTheme();
 // import HideOnScroll from './HideOnScroll';
 
 export interface IHeaderProps {
+	jsonResume: any
+	children: React.ReactElement
 }
-const pages = ['Charts', 'Pricing', 'Blog']
-const settings = ['Charts','Profile', 'Account', 'Dashboard', 'Logout']
+const routes = ['home','intro',
+'experience',
+'about',
+'contact',
+'references']
 
 interface Props {
 	/**
@@ -48,10 +65,13 @@ function HideOnScroll(props: Props) {
 }
 
 export default function Header(props: IHeaderProps) {
+	const { jsonResume, children } = props;
 	const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null)
 	const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
 		null
 	)
+	const [toggleDarkMode, setToggleDarkMode] = useState(true);
+	const [theme, setTheme] = useState(themeLight);
 
 	const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
 		setAnchorElNav(event.currentTarget)
@@ -60,8 +80,13 @@ export default function Header(props: IHeaderProps) {
 	const handleCloseNavMenu = () => {
 		setAnchorElNav(null)
 	}
-
+	const toggleDarkTheme = () => {
+		setTheme(toggleDarkMode ? themeDark : themeLight);
+		setToggleDarkMode(!toggleDarkMode);
+	};
 	return (
+		<React.Fragment>
+
 		<HideOnScroll {...props}>
 			<AppBar>
 				<Container maxWidth='xl'>
@@ -78,20 +103,24 @@ export default function Header(props: IHeaderProps) {
 						<Typography
 							variant='h6'
 							component='div'
+							color={'primary'}
 							sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
 						>
-							MUI
+							{jsonResume.basics.name}
 						</Typography>
 						<Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-							{pages.map(item => (
-								<Button key={item} color='primary' onClick={handleCloseNavMenu} href={'#'+item}>
-									{item}
+							<nav>
+							{routes.map(item => (
+								<Button key={item} color='primary' onClick={handleCloseNavMenu} >
+									<NavLink to={'/' + (item !== 'home' ? item : '')}>{item}</NavLink>
 								</Button>
 							))}
+							</nav>
 						</Box>
 					</Toolbar>
 				</Container>
 			</AppBar>
-		</HideOnScroll>
+			</HideOnScroll>
+			</React.Fragment>
 	)
 }

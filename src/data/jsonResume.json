@@ -59,7 +59,7 @@
         },
         {
             "name": "Travelers",
-            "position": "Full Stack Web UI Developer Visual Data Analytics / Manager Data Analytics Engineer Specialist ",
+            "position": "Full Stack Developer / Visual Data Analytics Engineer Specialist ",
             "startDate": "2018-10-31",
             "endDate": "2020-08-31",
             "highlights": [],
@@ -173,254 +173,294 @@
     "publications": [],
     "skills": [
         {
-            "name": "jQuery",
-            "level": "",
-            "keywords": []
+            "name": "Programming Languages",
+            "level": "7",
+            "keywords": ["Base", "Frontend", "DevOps"]
+        },
+        {
+            "name": "Containerization",
+            "level": "8",
+            "keywords": ["Base", "DevOps"]
+        },
+        {
+            "name": "Platform as a Service (PAAS)",
+            "level": "7",
+            "keywords": ["DevOps"]
+        },
+        {
+            "name": "Web Components",
+            "level": "9",
+            "keywords": ["Frontend"]
         },
         {
             "name": "XHTML",
-            "level": "",
-            "keywords": []
-        },
-        {
-            "name": "CSS",
-            "level": "",
-            "keywords": []
-        },
-        {
-            "name": "Web Development",
-            "level": "",
-            "keywords": []
-        },
-        {
-            "name": "XML",
-            "level": "",
-            "keywords": []
-        },
-        {
-            "name": "REST",
-            "level": "",
-            "keywords": []
-        },
-        {
-            "name": "Zend Framework",
-            "level": "",
-            "keywords": []
-        },
-        {
-            "name": "JIRA",
-            "level": "",
-            "keywords": []
-        },
-        {
-            "name": "Subversion",
-            "level": "",
-            "keywords": []
-        },
-        {
-            "name": "PHP",
-            "level": "",
-            "keywords": []
-        },
-        {
-            "name": "LAMP",
-            "level": "",
-            "keywords": []
-        },
-        {
-            "name": "E-commerce",
-            "level": "",
-            "keywords": []
-        },
-        {
-            "name": "HTML",
-            "level": "",
-            "keywords": []
+            "level": "10",
+            "keywords": ["Frontend"]
         },
         {
             "name": "AJAX",
-            "level": "",
-            "keywords": []
-        },
-        {
-            "name": "IOT",
-            "level": "",
-            "keywords": []
+            "level": "10",
+            "keywords": ["Frontend"]
         },
         {
             "name": "SQL",
-            "level": "",
-            "keywords": []
+            "level": "8",
+            "keywords": ["Database"]
         },
         {
-            "name": "Web Applications",
-            "level": "",
-            "keywords": []
-        },
-        {
-            "name": "OOP",
-            "level": "",
-            "keywords": []
-        },
-        {
-            "name": "Microsoft SQL Server",
-            "level": "",
-            "keywords": []
-        },
-        {
-            "name": "Virtualization",
-            "level": "",
-            "keywords": []
-        },
-        {
-            "name": "Linux",
-            "level": "",
-            "keywords": []
+            "name": "jQuery",
+            "level": "10",
+            "keywords": [
+                "linkedInAssesment",
+                "Frontend"
+            ]
         },
         {
             "name": "DOM Scripting",
-            "level": "",
-            "keywords": []
-        },
-        {
-            "name": "CodeIgniter",
-            "level": "",
-            "keywords": []
-        },
-        {
-            "name": "Node.js",
-            "level": "",
-            "keywords": []
-        },
-        {
-            "name": "OpenSSH",
-            "level": "",
-            "keywords": []
-        },
-        {
-            "name": "APIs",
-            "level": "",
-            "keywords": []
+            "level": "9",
+            "keywords": ["Frontend"]
         },
         {
             "name": "SEO",
-            "level": "",
-            "keywords": []
+            "level": "6",
+            "keywords": ["Frontend"]
         },
         {
             "name": "MVC",
-            "level": "",
-            "keywords": []
-        },
-        {
-            "name": "JavaScript",
-            "level": "",
-            "keywords": []
+            "level": "8",
+            "keywords": ["Base"]
         },
         {
             "name": "User Interface",
-            "level": "",
-            "keywords": []
+            "level": "9",
+            "keywords": ["Frontend", "Base"]
         },
         {
             "name": "Git",
-            "level": "",
-            "keywords": []
+            "level": "8",
+            "keywords": [
+                "linkedInAssesment",
+                "Base"
+            ]
         },
         {
-            "name": "User Experience",
-            "level": "",
-            "keywords": []
-        },
-        {
-            "name": "MySQL 4/5",
-            "level": "",
-            "keywords": []
-        },
-        {
-            "name": "MySQL",
-            "level": "",
-            "keywords": []
-        },
-        {
-            "name": "AngularJS",
-            "level": "",
-            "keywords": []
+            "name": "DevOps",
+            "level": "8",
+            "keywords": ["Base", "DevOps"]
         },
         {
             "name": "JSON",
-            "level": "",
-            "keywords": []
+            "level": "9",
+            "keywords": [
+                "linkedInAssesment",
+                "Base"
+            ]
         },
         {
             "name": "Continuous Integration",
-            "level": "",
-            "keywords": []
+            "level": "8",
+            "keywords": ["DevOps"]
         },
         {
-            "name": "WordPress",
-            "level": "",
-            "keywords": []
-        },
-        {
-            "name": "Web Design",
-            "level": "",
-            "keywords": []
-        },
-        {
-            "name": "Apache",
-            "level": "",
-            "keywords": []
-        },
-        {
-            "name": "SOAP",
-            "level": "",
-            "keywords": []
-        },
-        {
-            "name": "Information Architecture",
-            "level": "",
-            "keywords": []
-        },
-        {
-            "name": "MVC Architecture",
-            "level": "",
-            "keywords": []
-        },
-        {
-            "name": "Agile Methodologies",
-            "level": "",
-            "keywords": []
-        },
-        {
-            "name": "Salesforce.com",
-            "level": "",
-            "keywords": []
+            "name": "CSS",
+            "level": "8",
+            "keywords": ["Base", "Frontend"]
         },
         {
             "name": "Docker",
-            "level": "",
-            "keywords": []
+            "level": "8",
+            "keywords": ["Base", "DevOps"]
+        },
+        {
+            "name": "TypeScript",
+            "level": "8",
+            "keywords": ["Base", "Frontend", "Backend"]
+        },
+        {
+            "name": "XML",
+            "level": "8",
+            "keywords": ["Base"]
+        },
+        {
+            "name": "REST",
+            "level": "10",
+            "keywords": ["Base", "Frontend", "Backend"]
+        },
+        {
+            "name": "JIRA",
+            "level": "9",
+            "keywords": ["Base"]
+        },
+        {
+            "name": "PHP",
+            "level": "5",
+            "keywords": [
+                "linkedInAssesment",
+                "Base",
+                "Backend"
+            ]
+        },
+        {
+            "name": "LAMP",
+            "level": "7",
+            "keywords": ["Base", "Backend"]
+        },
+        {
+            "name": "E-commerce",
+            "level": "9",
+            "keywords": ["Base", "Frontend", "Backend"]
+        },
+        {
+            "name": "HTML",
+            "level": "9",
+            "keywords": [
+                "linkedInAssesment",
+                "Base",
+                "Frontend"
+            ]
+        },
+        {
+            "name": "IOT",
+            "level": "5",
+            "keywords": ["Base"]
+        },
+        {
+            "name": "Web Development",
+            "level": "10",
+            "keywords": ["Base"]
+        },
+        {
+            "name": "Web Applications",
+            "level": "10",
+            "keywords": ["Base"]
+        },
+        {
+            "name": "OOP",
+            "level": "8",
+            "keywords": [
+                "linkedInAssesment",
+                "Base"
+            ]
+        },
+        {
+            "name": "Virtualization",
+            "level": "8",
+            "keywords": ["DevOps", "Base"]
+        },
+        {
+            "name": "Linux",
+            "level": "9",
+            "keywords": [
+                "linkedInAssesment",
+                "DevOps",
+                "Base"
+            ]
+        },
+        {
+            "name": "Node.js",
+            "level": "9",
+            "keywords": [
+                "linkedInAssesment",
+                "Backend",
+                "Base"
+            ]
+        },
+        {
+            "name": "APIs",
+            "level": "10",
+            "keywords": ["Base", "Frontend", "Backend"]
+        },
+        {
+            "name": "JavaScript",
+            "level": "9",
+            "keywords": [
+                "linkedInAssesment",
+                "Frontend",
+                "Backend",
+                "Base"
+            ]
+        },
+        {
+            "name": "User Experience",
+            "level": "7",
+            "keywords": ["Base", "Frontend"]
+        },
+        {
+            "name": "MySQL",
+            "level": "8",
+            "keywords": ["Base", "Backend", "Database"]
+        },
+        {
+            "name": "AngularJS",
+            "level": "8",
+            "keywords": ["Base", "Frontend"]
+        },
+        {
+            "name": "Web Design",
+            "level": "6",
+            "keywords": ["Base", "Frontend"]
+        },
+        {
+            "name": "React.js",
+            "level": "8",
+            "keywords": [
+                "linkedInAssesment",
+                "Frontend",
+                "Backend"
+            ]
+        },
+        {
+            "name": "Apache",
+            "level": "5",
+            "keywords": ["Base"]
+        },
+        {
+            "name": "REST APIs",
+            "level": "10",
+            "keywords": ["Base", "Frontend", "Backend"]
+        },
+        {
+            "name": "Information Architecture",
+            "level": "7",
+            "keywords": ["Base"]
+        },
+        {
+            "name": "MVC Architecture",
+            "level": "8",
+            "keywords": ["Base"]
+        },
+        {
+            "name": "Agile Methodologies",
+            "level": "8",
+            "keywords": [
+                "linkedInAssesment",
+                "Base"
+            ]
+        },
+        {
+            "name": "Salesforce.com",
+            "level": "7",
+            "keywords": ["Base"]
         },
         {
             "name": "Databases",
-            "level": "",
-            "keywords": []
+            "level": "9",
+            "keywords": ["Base", "Backend"]
         },
         {
             "name": "UIX",
-            "level": "",
-            "keywords": []
-        },
-        {
-            "name": "Flash",
-            "level": "",
-            "keywords": []
+            "level": "8",
+            "keywords": ["Base", "Frontend"]
         },
         {
             "name": "Web Services",
-            "level": "",
-            "keywords": []
+            "level": "9",
+            "keywords": ["Base", "Frontend", "Backend"]
+        },
+        {
+            "name": "Full-Stack Development",
+            "level": "10",
+            "keywords": ["Base", "Frontend", "Backend"]
         }
     ],
     "languages": [
@@ -432,8 +472,12 @@
     "interests": [],
     "references": [
         {
-            "name": "Arda Tezjon",
-            "reference": "John is a highly skilled Full Stack Senior Developer with strong communication skills and hardworking spirit. He has demonstrated his strong backend and frontend abilities in all the projects we have worked on. He is a quick learner and would be a great fit for your team!"
+            "name": "Achref Thamri",
+            "reference": "John consistently exhibits an invaluable combination of being helpful and remarkably insightful. His willingness to lend a hand, offer guidance, and share their expertise has been instrumental in others' success. His ability to offer practical solutions with a thoughtful approach makes him an asset in any collaborative setting."
+        },
+        {
+            "name": "Mikkel Möller-Lindkvist",
+            "reference": "John is a highly skilled developer, with one of the best attitudes I’ve encountered in my career. \n\nJohn manages to tackle any challenge with positivity and realism, while having communicating at all times. Something that’s highly valuable in a business with rapid change. John asks the important questions, and prioritizes the Users and the vision instead of what’s fastest or shortest.\nJohn is also a great person and an empathetic person, who will positively impact any team he joins."
         },
         {
             "name": "Eric Tully",
@@ -466,10 +510,6 @@
         {
             "name": "John Hennessey",
             "reference": "John is a very well rounded web developer with unique technical skills.  I would highly recommend John.  He is very capable and hard working.  He was very helpful troubleshooting complex issues, often times outside his primary responsibilities.  He created many new systems from concept to implementation that involved all the different aspects of development from the user interface to the back-end database and all the logic in between.\r\n\r\nI recommend John as he is a great asset to any IT team."
-        },
-        {
-            "name": "Vincent Ferrigno",
-            "reference": "John has helped me on multiple projects both professionally and personal. He is by far the most talented, professional and versatile developer I have ever worked with. He consistently demonstrates leadership, flexibility and commitment. John's talent and experience in web development, design, user interaction, corporate branding (and re branding), monetization and ROI, and strategic planning have helped me with all the projects i have consulted him for. His biggest strength is his versatility and going outside the roles most web designers and developers stick to by being highly competent at both both design and development."
         }
     ],
     "projects": [

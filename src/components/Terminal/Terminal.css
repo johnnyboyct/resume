@@ -287,13 +287,14 @@ TypedTerminal {
 .TerminalWrapper {
     font-family: monospace;
     width: 100% !important;
-    background-color: var(--dark) !important;
+    /* background-color: var(--dark) !important; */
     max-width: 100% !important;
     height: 100% !important;
+    background-color: #2f0923 !important;
 }
 .TerminalBody{
     width: 100%;
-    background-color:  var(--dark) !important;
+background-color: #2f0923 !important;
 }
 
 .TerminalPrompt {
