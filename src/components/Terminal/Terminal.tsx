@@ -1,6 +1,9 @@
 import './Terminal.css';
 
-import React, { useEffect } from 'react';
+import React, {
+  useEffect,
+  useRef,
+} from 'react';
 
 import { TypedTerminal } from 'react-component-typed-terminal';
 import { useCookies } from 'react-cookie';
@@ -51,7 +54,8 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
 }));
 
 export default function Terminal({ theme, basics, terminalOpts }: ITerminalProps) {
-
+	const elsignRef = useRef<HTMLDivElement>(null);
+	const elcodeRef = useRef<HTMLDivElement>(null);
 	// console.log(terminalOpts)
 	const [open, setOpen] = React.useState(false);
 	const [cookies, setCookie] = useCookies(["terminal"]);
@@ -67,7 +71,7 @@ export default function Terminal({ theme, basics, terminalOpts }: ITerminalProps
 	useEffect(() => {
 		if (!cookies.terminal) {
 			setOpen(true);
-			// setCookie("terminal", true, { path: '/' });
+			setCookie("terminal", true, { path: '/' });
 		} else {
 
 		}
@@ -85,16 +89,7 @@ export default function Terminal({ theme, basics, terminalOpts }: ITerminalProps
 
 	}
 
-	const terminalData = [
-		{
-			command: "ls -a ./folder-1",
-			results: ["file 1", "file 2", "file 3", "file 4"],
-		},
-		{
-			command: "ls -a ./folder-2",
-			results: ["file 1", "file 2", "file 3", "file 4"],
-		},
-	]
+
 	return (
 		// <div className="wrapper">
 		<BootstrapDialog
@@ -134,7 +129,10 @@ export default function Terminal({ theme, basics, terminalOpts }: ITerminalProps
 					<div className="inner"></div>
 				</div> */}
 				{/* <Container fixed className="term"> */}
-
+				{/* <div id="elsign" ref={elsignRef}></div>
+				<div id="vp">
+					<div id="elcode" ref={elcodeRef}></div>
+				</div> */}
 				{/* <TerminalLine
 						promptText={terminalOpts.promptText }
 						typedJsProps={{
@@ -151,7 +149,8 @@ export default function Terminal({ theme, basics, terminalOpts }: ITerminalProps
 							<TypedTerminal promptText={terminalOpts.promptText} title="Welcome To JohnM.org" typedJsProps={typedJsProps} terminalData={terminalData} />
 						);
 					})} */}
-				<TypedTerminal  promptText={terminalOpts.promptText} title="Welcome To JohnM.org" typedJsProps={typedJsProps} terminalData={terminalOpts.terminalData} />
+
+				<TypedTerminal  promptText={terminalOpts.promptText} title="Welcome To JohnM.org" typedJsProps={typedJsProps} terminalData={terminalOpts.terminalData}  />
 
 				{/* <div className="flicker"></div>
 				<div className="scanlines"></div>

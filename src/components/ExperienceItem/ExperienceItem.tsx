@@ -9,8 +9,7 @@ import {
 
 import Moment from 'react-moment';
 
-import ExpandCircleDownTwoToneIcon
-  from '@mui/icons-material/ExpandCircleDownTwoTone';
+import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import MapsHomeWorkTwoToneIcon from '@mui/icons-material/MapsHomeWorkTwoTone';
 import {
   TimelineConnector,
@@ -52,36 +51,25 @@ export default function ExperienceItem({ workItemData, showDateStats = true }: I
 		}
 
 		if (enddate === 'Present') {
-			ds = (
-				<TimelineContent
-					sx={{ m: 'auto 0' }}
-					align='right'
-					variant='body2'
-					color='primary.contrastText'
-				>
-					<Typography>
-						<Moment format='MMM YYYY' className='s'>
-							{startdate}
-						</Moment>{' '}
-						- Present
-					</Typography>
-					<Typography display='inline' variant='caption'>
-						<Moment
-							format='Y [years] M [months]'
-							date={startdate}
-							durationFromNow
-						/>
-					</Typography>
-				</TimelineContent>
+			ds = (<>
+				<Typography>
+					<Moment format='MMM YYYY' className='s'>
+						{startdate}
+					</Moment>
+					- Present
+				</Typography>
+				<Typography display='inline' variant='subtitle2' sx={{color: theme.palette.secondary.light}} >
+					<Moment
+						format='Y [years] M [months]'
+						date={startdate}
+						durationFromNow
+					/>
+				</Typography>
+			</>
 			)
 		} else {
 			ds = (
-				<TimelineContent
-					sx={{ m: 'auto 0' }}
-					align='right'
-					variant='body2'
-					color='primary.contrastText'
-				>
+				<>
 					<Typography>
 						<Moment format='MMM YYYY'>{startdate}</Moment> - <Moment format='MMM YYYY'>{enddate}</Moment>
 					</Typography>
@@ -93,11 +81,18 @@ export default function ExperienceItem({ workItemData, showDateStats = true }: I
 						, Left: <Moment fromNow>{enddate}</Moment>)
 					</Typography> : null}
 
-				</TimelineContent>
+				</>
 			)
 		}
-
-		return <div className='startdate'>{ds}</div>
+		if (workItemData.key % 2 === 0) {
+			return <TimelineOppositeContent sx={{ m: 'auto 0' }}
+				align='right'
+				color='primary.main'>{ds}</TimelineOppositeContent>
+		} else {
+			return <TimelineOppositeContent  sx={{ m: 'auto 0' }}
+				align='right'
+				color='primary.main'>{ds}</TimelineOppositeContent>
+		}
 	}
 	const handleChange = (
 		e: SyntheticEvent<Element, Event>,
@@ -109,52 +104,56 @@ export default function ExperienceItem({ workItemData, showDateStats = true }: I
 	}
 	return (
 		<div className='wrapper'>
-			<TimelineItem >
-				<TimelineOppositeContent>
-					{getWorkDates()}
-				</TimelineOppositeContent>
+			<TimelineItem sx={{  }}>
+
+				{getWorkDates()}
+
 				<TimelineSeparator >
-					<TimelineConnector sx={{ bgcolor: 'secondary.main' }} />
+					<TimelineConnector sx={{}} />
 					<TimelineDot color='secondary' variant='filled' sx={{ margin: 0, backgroundColor: theme.palette.secondary.main }}>
 						<MapsHomeWorkTwoToneIcon />
 					</TimelineDot>
 					<TimelineConnector sx={{ bgcolor: 'secondary.main' }} />
 				</TimelineSeparator>
-				<TimelineContent sx={{ py: '0px', px: 2, width: '33%', backgroundColor: theme.palette.primary.paperBG, color: theme.palette.primary.contrastText }}  >
-						<Accordion
-							disableGutters
-							elevation={0}
-							square
-							sx={{ backgroundColor: theme.palette.primary.paperBG, color: theme.palette.primary.contrastText }}
-							onChange={(e, expanded) => {
-								handleChange(e, expanded, elipseContent)
-							}}
-						>
-							<AccordionSummary
-								expandIcon={<ExpandCircleDownTwoToneIcon color='primary' fontSize="large" />}
-								aria-controls='panel1a-content'
-								id='panel1a-header'
-								className='summaryBar'
-								sx={{ backgroundColor: theme.palette.primary.paperBG, color: theme.palette.primary.contrastText }}
-							>
-								<Typography sx={{ width: '28%', flexShrink: 0 }}>
-									<Link href={workItemData.url} target='_blank'>{workItemData.name}</Link>
-								</Typography>
-								<Divider orientation='vertical' variant='inset' />
-								<Typography >
-									{workItemData.position}
-								</Typography>
-							</AccordionSummary>
+				<TimelineContent sx={{ py: '0px', px: 2, width: '33%' }}  >
+					<Accordion
+						disableGutters
+						elevation={0}
+						square
+						sx={{ backgroundColor: theme.palette.primary.paperBG, color: theme.palette.primary.contrastText }}
+						onChange={(e, expanded) => {
+							handleChange(e, expanded, elipseContent)
+						}}
+					>
 
-							<AccordionDetails>
-								<Typography className='summary'>
+						<AccordionSummary
+							expandIcon={<KeyboardArrowRightIcon color='primary' fontSize="large" sx={{marginRight:'0.5em'}}   />}
+							aria-controls='panel1a-content'
+							id='panel1a-header'
+							className='summaryBar'
+							sx={{ backgroundColor: theme.palette.primary.paperBG, color: theme.palette.primary.contrastText, paddingLeft:' 2em' }}
+						>
+							<Typography sx={{ width: '35%', flexShrink: 0, fontSize: '1em', paddingLeft:'1.5em' }} variant="h6">
+								<Link href={workItemData.url} target='_blank'>{workItemData.name}</Link>
+							</Typography>
+							<Divider orientation='vertical' variant='inset' />
+							<Typography variant="h6" sx={{ fontSize: '1em' }} >
+								{workItemData.position}
+							</Typography>
+						</AccordionSummary>
+
+						<AccordionDetails sx={{ padding:'1.2em' }}>
+							<div >
+								<Typography className='summary' sx={{ fontSize: '1em' }}>
 									{workItemData.summary}
 								</Typography>
-							</AccordionDetails>
-						</Accordion>
-						<div className='elipse' ref={elipseContent} hidden={!showElipse} style={{ backgroundColor: theme.palette.primary.paperBG, color: theme.palette.primary.contrastText }}>
-							{workItemData.summary}
-						</div>
+							</div>
+						</AccordionDetails>
+
+					</Accordion>
+					<div className='elipse' ref={elipseContent} hidden={!showElipse} style={{ backgroundColor: theme.palette.primary.paperBG, color: theme.palette.primary.contrastText, padding: '1em 1.4em ',  fontSize:'1em' }}>
+						{workItemData.summary}
+					</div>
 				</TimelineContent>
 			</TimelineItem>
 		</div>

@@ -1,1 +1,51 @@
-.wrapper {}
+.wrapperAbout {
+    padding: 2em 5em;
+        font: normal 40px/50px Arial, sans-serif;
+        color: #999;
+}
+.wrapperAbout p {
+    height: 50px;
+    float: left;
+    margin-right: 0.3em;
+}
+
+.wrapperAbout b {
+    float: left;
+    overflow: hidden;
+    position: relative;
+    height: 50px;
+}
+
+.wrapperAbout span {
+    display: inline-block;
+    color: #e74c3c;
+    position: relative;
+    white-space: nowrap;
+    top: 0;
+    left: 0;
+    animation: move 5s;
+    animation-iteration-count: infinite;
+    animation-delay: 1s;
+}
+
+@keyframes move {
+    0% {
+        top: 0px;
+    }
+
+    20% {
+        top: -50px;
+    }
+
+    40% {
+        top: -100px;
+    }
+
+    60% {
+        top: -150px;
+    }
+
+    80% {
+        top: -200px;
+    }
+}

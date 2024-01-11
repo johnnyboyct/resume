@@ -19,8 +19,8 @@ export default function Experience({ workData, showDateStats = true }: IExperien
   const theme = useTheme()
 
   return (
-    <div className="wrapper">
-      <div className="border" style={{ border: '0.44rem double ' + theme.palette.primary.contrastText, backgroundColor: theme.palette.primary.paperBG }}>
+    // <div className="wrapper">
+    //   <div className="border" style={{ border: '0.44rem double ' + theme.palette.primary.contrastText, backgroundColor: theme.palette.primary.paperBG }}>
         <Timeline
           position="alternate"
           sx={{
@@ -32,10 +32,10 @@ export default function Experience({ workData, showDateStats = true }: IExperien
           }}
         >
           {workData.map((val: any, index: any) => (
-            <ExperienceItem key={index} workItemData={val} showDateStats={showDateStats} />
+            <ExperienceItem key={index} workItemData={{...val, key: index}} showDateStats={showDateStats} />
           ))}
         </Timeline>
-      </div>
-    </div>
+    //   </div>
+    // </div>
   )
 }

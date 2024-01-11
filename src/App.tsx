@@ -33,14 +33,17 @@ import {
   ThemeProvider as MaterialThemeProvider,
 } from '@mui/material/styles';
 
+import About from './components/About';
+import Charts from './components/Charts';
+import Education from './components/Education';
 import Experience from './components/Experience';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import Home from './components/Home';
 import Intro from './components/Intro';
 import MyCard from './components/MyCard';
-import Profile from './components/Profile';
 import References from './components/References';
+import Skills from './components/Skills';
 import Terminal from './components/Terminal';
 import SideBar from './containers/components/SideBar';
 import {
@@ -57,7 +60,7 @@ function App() {
     const [cookies, setCookie] = useCookies(["terminal"]);
     const { basics, work, skills, education, references } = jsonResume;
     const [toggleDarkMode, setToggleDarkMode] = useState(true);
-    const [theme, setTheme] = useState(themeLight);
+    const [theme, setTheme] = useState(themeDark);
     const toggleDarkTheme = () => {
         setTheme(toggleDarkMode ? themeDark : themeLight);
         setToggleDarkMode(!toggleDarkMode);
@@ -86,7 +89,7 @@ function App() {
                                 </IconButton>
                             </Header>
                         </Box>
-                        <Terminal theme={themeLight} basics={basics} terminalOpts={terminalOpts} />
+                        <Terminal theme={theme} basics={basics} terminalOpts={terminalOpts} />
 
 
                         <main>
@@ -94,15 +97,18 @@ function App() {
                             <Box sx={{ flexGrow: 1 }}>
                                 <Grid container>
                                     <Grid item xs={2} sx={{ px: ".5em" }}>
-                                        <SideBar basics={basics}  />
+                                        <SideBar basics={basics} theme={theme}  />
                                     </Grid>
                                     <Grid item xs={10} sx={{ px: ".5em" }}>
 
                                         <SlideRoutes>
                                             <Route path="/" element={<Home jsonResume={jsonResume} />} />
                                             <Route path="/intro" element={<Intro profileData={basics} />} />
+                                            <Route path="/skills" element={<Skills skills={skills} />} />
+                                            <Route path="/charts" element={<Charts />} />
                                             <Route path="/experience" element={<Experience workData={work} showDateStats={false} />} />
-                                            <Route path="/about" element={<Profile profileData={basics} />} />
+                                            <Route path="/about" element={<About  />} />
+                                            <Route path="/education" element={<Education education={education} />} />
                                             <Route path="/contact" element={<MyCard profileData={basics} />} />
                                             <Route path="/references" element={<References references={references} />} />
                                         </SlideRoutes>

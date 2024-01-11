@@ -33,11 +33,15 @@ export interface IHeaderProps {
 	jsonResume: any
 	children: React.ReactElement
 }
-const routes = ['home','intro',
-'experience',
-'about',
-'contact',
-'references']
+const routes = ['home', 'intro',
+
+	'skills',
+	'experience',
+	'about',
+	'contact',
+	'charts',
+	'education',
+	'references']
 
 interface Props {
 	/**
@@ -86,41 +90,42 @@ export default function Header(props: IHeaderProps) {
 	};
 	return (
 		<React.Fragment>
+			<HideOnScroll {...props}>
+				<AppBar>
+					<Container maxWidth='xl'>
+						<Toolbar>
+							<IconButton
+								color='inherit'
+								aria-label='open drawer'
+								edge='start'
+								onClick={handleOpenNavMenu}
+								sx={{ mr: 2, display: { sm: 'none' } }}
+							>
+								<MenuIcon />
+							</IconButton>
+							<Typography
+								variant='h6'
+								component='div'
+								color={'primary'}
+								sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
+							>
+								{jsonResume.basics.name}
+							</Typography>
+							<Box sx={{ display: { xs: 'none', sm: 'block' } }}>
+								<nav>
+									{routes.map(item => (
+										<Button key={item} color='primary' onClick={handleCloseNavMenu} >
+											<NavLink to={'/' + (item !== 'home' ? item : '')}>{item}</NavLink>
+										</Button>
+									))}
 
-		<HideOnScroll {...props}>
-			<AppBar>
-				<Container maxWidth='xl'>
-					<Toolbar>
-						<IconButton
-							color='inherit'
-							aria-label='open drawer'
-							edge='start'
-							onClick={handleOpenNavMenu}
-							sx={{ mr: 2, display: { sm: 'none' } }}
-						>
-							<MenuIcon />
-						</IconButton>
-						<Typography
-							variant='h6'
-							component='div'
-							color={'primary'}
-							sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
-						>
-							{jsonResume.basics.name}
-						</Typography>
-						<Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-							<nav>
-							{routes.map(item => (
-								<Button key={item} color='primary' onClick={handleCloseNavMenu} >
-									<NavLink to={'/' + (item !== 'home' ? item : '')}>{item}</NavLink>
-								</Button>
-							))}
-							</nav>
-						</Box>
-					</Toolbar>
-				</Container>
-			</AppBar>
+									{children}
+								</nav>
+							</Box>
+						</Toolbar>
+					</Container>
+				</AppBar>
 			</HideOnScroll>
-			</React.Fragment>
+		</React.Fragment>
 	)
 }
