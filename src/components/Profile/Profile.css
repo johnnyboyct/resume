@@ -1,6 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Oswald:400);
-.wrapperProfile {
 
+.wrapperProfile {
+    width: 12em;
     font-size: 1em;
     font-family: 'Oswald', 'Helvetica Neue', Helvetica;
     line-height: 1.4;
@@ -10,13 +11,13 @@
     position: relative;
     z-index: 0;
     margin: 40px auto;
-    width: 255px;;
-    top:-75px
+    width: 100%;
+    top: -75px
 }
 
 .banner .line {
     margin: 0 0 10px;
-    width: 91%;
+    width: 100%;
     height: 78px;
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.05);
     text-align: center;
@@ -33,7 +34,7 @@
     left: 0;
     z-index: -1;
     display: block;
-    width: 236px;
+    width: 100%;
     height: 78px;
     border-radius: 4px;
     background: rgba(180, 180, 180, 0.8);
@@ -70,4 +71,15 @@
     background: rgba(255, 255, 255, 0.9);
     color: #666;
     text-shadow: 1px 1px 0 #444;
+    font-size: 90%;
+}
+
+.text-title-name {
+    font-size: 2vw !important;
+    font-weight: bolder;
+}
+
+.text-title-label {
+    font-size: 1vw !important;
+    font-weight: bolder;
 }

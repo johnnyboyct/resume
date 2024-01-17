@@ -5,9 +5,12 @@ import { useState } from 'react';
 
 import { NavLink } from 'react-router-dom';
 
-import { extendTheme as chakraExtendTheme } from '@chakra-ui/react';
+import { extendTheme as chakraExtendTheme, Divider, Drawer, List, ListItem } from '@chakra-ui/react';
 import MenuIcon from '@mui/icons-material/Menu';
 import {
+	ListItemButton,
+	ListItemIcon,
+	ListItemText,
   Slide,
   useScrollTrigger,
 } from '@mui/material';
@@ -32,6 +35,15 @@ const materialTheme = muiCreateTheme();
 export interface IHeaderProps {
 	jsonResume: any
 	children: React.ReactElement
+	window?: () => Window
+}
+interface Props {
+	/**
+	 * Injected by the documentation to work in an iframe.
+	 * You won't need it on your project.
+	 */
+	window?: () => Window
+	children: React.ReactElement
 }
 const routes = ['home', 'intro',
 
@@ -43,14 +55,7 @@ const routes = ['home', 'intro',
 	'education',
 	'references']
 
-interface Props {
-	/**
-	 * Injected by the documentation to work in an iframe.
-	 * You won't need it on your project.
-	 */
-	window?: () => Window
-	children: React.ReactElement
-}
+
 
 function HideOnScroll(props: Props) {
 	const { children, window } = props
@@ -71,11 +76,6 @@ function HideOnScroll(props: Props) {
 export default function Header(props: IHeaderProps) {
 	const { jsonResume, children } = props;
 	const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null)
-	const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
-		null
-	)
-	const [toggleDarkMode, setToggleDarkMode] = useState(true);
-	const [theme, setTheme] = useState(themeLight);
 
 	const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
 		setAnchorElNav(event.currentTarget)
@@ -84,13 +84,41 @@ export default function Header(props: IHeaderProps) {
 	const handleCloseNavMenu = () => {
 		setAnchorElNav(null)
 	}
-	const toggleDarkTheme = () => {
-		setTheme(toggleDarkMode ? themeDark : themeLight);
-		setToggleDarkMode(!toggleDarkMode);
-	};
+  const drawer = (
+    <div>
+      <Toolbar />
+      <Divider />
+      <List>
+        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+          <ListItem key={text} >
+            <ListItemButton>
+              <ListItemIcon>
+                {index % 2 === 0 ? <MenuIcon /> : <MenuIcon />}
+              </ListItemIcon>
+              <ListItemText primary={text} />
+            </ListItemButton>
+          </ListItem>
+        ))}
+      </List>
+      <Divider />
+      <List>
+        {['All mail', 'Trash', 'Spam'].map((text, index) => (
+          <ListItem key={text} >
+            <ListItemButton>
+              <ListItemIcon>
+                {index % 2 === 0 ? <MenuIcon /> : <MenuIcon />}
+              </ListItemIcon>
+              <ListItemText primary={text} />
+            </ListItemButton>
+          </ListItem>
+        ))}
+      </List>
+    </div>
+  );
 	return (
 		<React.Fragment>
 			<HideOnScroll {...props}>
+				<>
 				<AppBar>
 					<Container maxWidth='xl'>
 						<Toolbar>
@@ -121,10 +149,21 @@ export default function Header(props: IHeaderProps) {
 
 									{children}
 								</nav>
+
 							</Box>
 						</Toolbar>
 					</Container>
-				</AppBar>
+					</AppBar>
+					        <Drawer
+						variant="permanent"
+						isOpen
+						onClose={function (): void {
+							throw new Error('Function not implemented.');
+						} }        >https://mui.com/material-ui/react-stepper/
+          {drawer}
+        </Drawer>
+					</>
+
 			</HideOnScroll>
 		</React.Fragment>
 	)

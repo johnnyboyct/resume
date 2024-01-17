@@ -45,34 +45,41 @@ export default function D3CircularPack({ width, height, data, }: ID3CircularPack
       {root
         .descendants()
         .slice(1)
-        .map((node) => (
-          <circle
-            key={node.data.name}
-            cx={node.x}
-            cy={node.y}
-            r={node.r}
-            stroke="#553C9A"
-            strokeWidth={2}
-            fill="#B794F4"
-            fillOpacity={0.2}
-          />
-        ))}
+        .map((node) => {
+                      console.log('%c⧭', 'color: #e50000',  node);
+
+          return (
+            <circle
+              key={node.data.name}
+              cx={node.x}
+              cy={node.y}
+              r={node.r}
+              stroke="#553C9A"
+              strokeWidth={2}
+              fill="#B794F4"
+              fillOpacity={0.2} />
+          );
+        })}
       {root
         .descendants()
         .slice(1)
-        .map((node) => (
-          <text
-            key={node.data.value}
-            x={node.x}
-            y={node.y}
-            fontSize={13}
-            fontWeight={0.4}
-            textAnchor="middle"
-            alignmentBaseline="middle"
-          >
-            {node.data.name}
-          </text>
-        ))}
+        .map((node) => {
+                      console.log('%c⧭', 'color: #e50000',  node);
+
+          return (
+            <text
+              key={node.data.value}
+              x={node.x}
+              y={node.y}
+              fontSize={13}
+              fontWeight={0.4}
+              textAnchor="middle"
+              alignmentBaseline="middle"
+            >
+              {node.data.name}
+            </text>
+          );
+        })}
     </svg>
   );
 }
